@@ -79,6 +79,7 @@ public class Main extends JFrame implements ActionListener, MonitorListener {
         destinationChooseButton.addActionListener(this);
         startStopSwitchButton.addActionListener(this);
 
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
 
