@@ -51,7 +51,7 @@ public class Main extends JFrame implements ActionListener, MonitorListener {
         container.add(labelSource);
 
         sourceField.setBounds(110, 20, 430, 40);
-        sourceField.setEnabled(false);
+        sourceField.setEditable(false);
         container.add(sourceField);
 
         sourceChooseButton.setBounds(550, 20, 70, 40);
@@ -62,7 +62,7 @@ public class Main extends JFrame implements ActionListener, MonitorListener {
         container.add(labelDestination);
 
         destinationField.setBounds(110, 70, 430, 40);
-        destinationField.setEnabled(false);
+        destinationField.setEditable(false);
         container.add(destinationField);
 
         destinationChooseButton.setBounds(550, 70, 70, 40);
