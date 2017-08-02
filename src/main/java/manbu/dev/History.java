@@ -15,7 +15,7 @@ import java.util.Properties;
  * Date: 8/2/17
  * Time: 09:52
  */
-public class HistoryLoader {
+public class History {
 
     private static final Properties properties;
 

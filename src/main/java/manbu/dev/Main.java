@@ -52,7 +52,7 @@ public class Main extends JFrame implements ActionListener, MonitorListener {
 
         sourceField.setBounds(110, 20, 430, 40);
         sourceField.setEditable(false);
-        sourceField.setText(HistoryLoader.getSource());
+        sourceField.setText(History.getSource());
         container.add(sourceField);
 
         sourceChooseButton.setBounds(550, 20, 70, 40);
@@ -64,7 +64,7 @@ public class Main extends JFrame implements ActionListener, MonitorListener {
 
         destinationField.setBounds(110, 70, 430, 40);
         destinationField.setEditable(false);
-        destinationField.setText(HistoryLoader.getDestination());
+        destinationField.setText(History.getDestination());
         container.add(destinationField);
 
         destinationChooseButton.setBounds(550, 70, 70, 40);
@@ -103,12 +103,12 @@ public class Main extends JFrame implements ActionListener, MonitorListener {
         if(e.getSource().equals(sourceChooseButton)) {
 
             showFileChooser(sourceField);
-            HistoryLoader.setSource(sourceField.getText());
+            History.setSource(sourceField.getText());
 
         } else if(e.getSource().equals(destinationChooseButton)) {
 
             showFileChooser(destinationField);
-            HistoryLoader.setDestination(destinationField.getText());
+            History.setDestination(destinationField.getText());
 
         } else if(e.getSource().equals(startStopSwitchButton)) {
 
