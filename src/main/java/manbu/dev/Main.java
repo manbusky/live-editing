@@ -52,6 +52,7 @@ public class Main extends JFrame implements ActionListener, MonitorListener {
 
         sourceField.setBounds(110, 20, 430, 40);
         sourceField.setEditable(false);
+        sourceField.setText(HistoryLoader.getSource());
         container.add(sourceField);
 
         sourceChooseButton.setBounds(550, 20, 70, 40);
@@ -63,6 +64,7 @@ public class Main extends JFrame implements ActionListener, MonitorListener {
 
         destinationField.setBounds(110, 70, 430, 40);
         destinationField.setEditable(false);
+        destinationField.setText(HistoryLoader.getDestination());
         container.add(destinationField);
 
         destinationChooseButton.setBounds(550, 70, 70, 40);
@@ -81,9 +83,12 @@ public class Main extends JFrame implements ActionListener, MonitorListener {
         destinationChooseButton.addActionListener(this);
         startStopSwitchButton.addActionListener(this);
 
+        this.setTitle("Sync file (by manbu)");
         this.addWindowListener(new MainWindowListener());
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
         this.setVisible(true);
+
     }
 
 
@@ -98,10 +103,12 @@ public class Main extends JFrame implements ActionListener, MonitorListener {
         if(e.getSource().equals(sourceChooseButton)) {
 
             showFileChooser(sourceField);
+            HistoryLoader.setSource(sourceField.getText());
 
         } else if(e.getSource().equals(destinationChooseButton)) {
 
             showFileChooser(destinationField);
+            HistoryLoader.setDestination(destinationField.getText());
 
         } else if(e.getSource().equals(startStopSwitchButton)) {
 
@@ -127,7 +134,11 @@ public class Main extends JFrame implements ActionListener, MonitorListener {
 
         chooser.showOpenDialog(this);
 
-        textField.setText(chooser.getSelectedFile().getPath());
+        File selectedFile = chooser.getSelectedFile();
+
+        if(selectedFile != null) {
+            textField.setText(chooser.getSelectedFile().getPath());
+        }
     }
 
     @Override
